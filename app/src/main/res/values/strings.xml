@@ -1,0 +1,16 @@
+<resources>
+    <!-- Main activity -->
+    <string name="app_name">MicroCosmos</string>
+    <string name="activity_main__exit">Quitter ?</string>
+
+    <!-- Splashscreen activity-->
+    <string name="activity_splashscreen__title">MICROCOSMOS</string>
+
+    <!-- Login activity-->
+    <string name="activity_login__login_wording">Identifiant</string>
+    <string name="activity_login__password_wording">Mot de passe</string>
+    <string name="activity_login__validate_wording">Connexion</string>
+    <string name="activity_login__sign_up_wording">S\'inscrire</string>
+    <string name="activity_login__connection_refused">Connexion refusée</string>
+    <string name="activity_login__connection_success">Connexion</string>
+</resources>
