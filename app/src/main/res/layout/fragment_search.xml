@@ -15,11 +15,22 @@
             android:id="@+id/bee"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@mipmap/bee"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:alpha="0.25"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:alpha="0.25"
+            android:src="@mipmap/bee"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            android:scrollbars="vertical"
+            android:alpha="0.9"/>
 
         <include android:id="@+id/toolbar" layout="@layout/toolbar"/>
 
@@ -31,8 +42,8 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
+        app:layout_constraintStart_toStartOf="parent"
         app:headerLayout="@layout/header__navigation_view"
-        app:menu="@menu/menu__navigation_view"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:menu="@menu/menu__navigation_view"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>

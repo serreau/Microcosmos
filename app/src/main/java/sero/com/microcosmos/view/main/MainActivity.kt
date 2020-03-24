@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.goto_logout -> {
                 nav_host.findNavController().navigate(R.id.loginFragment)
                 model.disconnect(this)
+                toastIt(this, getString(R.string.activity_login__logout_success))
             }
         }
         return true

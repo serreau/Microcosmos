@@ -12,5 +12,6 @@
     <string name="activity_login__validate_wording">Connexion</string>
     <string name="activity_login__sign_up_wording">S\'inscrire</string>
     <string name="activity_login__connection_refused">Connexion refusée</string>
-    <string name="activity_login__connection_success">Connexion</string>
+    <string name="activity_login__login_success">Connecté</string>
+    <string name="activity_login__logout_success">Déconnecté</string>
 </resources>

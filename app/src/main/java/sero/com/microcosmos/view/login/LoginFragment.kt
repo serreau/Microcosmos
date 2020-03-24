@@ -30,7 +30,7 @@ class LoginFragment : Fragment() {
         connectButton.setOnTouchListener { _, _ ->
             if (model.connect(context, getValue(login), getValue(password))){
                 findNavController().navigate(R.id.searchFragment)
-                toastIt(context, getString(R.string.activity_login__connection_success))
+                toastIt(context, getString(R.string.activity_login__login_success))
             }
             else
                 toastIt(context, getString(R.string.activity_login__connection_refused))

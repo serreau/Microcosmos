@@ -2,15 +2,13 @@ package sero.com.microcosmos.view.login
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import sero.com.microcosmos.data.repository.LocalUserRepository
 import sero.com.microcosmos.data.repository.RemoteUserRepository
 
-class LoginViewModel () : ViewModel() {
-    private val remoteUserRepository = RemoteUserRepository()
-    private val localUserRepository = LocalUserRepository()
+class LoginViewModel : ViewModel() {
+    private val remoteUserRepository : RemoteUserRepository = RemoteUserRepository()
+    private val localUserRepository : LocalUserRepository = LocalUserRepository()
 
     fun connect(context : Context?, login : String, password : String) =
         runBlocking {

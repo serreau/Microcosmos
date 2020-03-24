@@ -1,3 +1,3 @@
 package sero.com.microcosmos.data.remote.response
 
-class ConnectResponse ( val connected: Boolean)
+class UserExistResponse (val exist: Boolean)
