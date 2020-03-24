@@ -13,4 +13,7 @@ class LocalUserRepository {
 
     suspend fun stillConnected(context : Context) =
         CustomDatabase.getDatabase(context).userDao().isConnected() > 0
+
+    suspend fun getUserName(context: Context) =
+        CustomDatabase.getDatabase(context).userDao().getName()
 }

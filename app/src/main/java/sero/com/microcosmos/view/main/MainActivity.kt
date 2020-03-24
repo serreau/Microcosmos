@@ -10,8 +10,8 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import sero.com.microcosmos.R
-import sero.com.microcosmos.view.utils.ON_BACK_PRESSED_DELAY
-import sero.com.microcosmos.view.utils.toastIt
+import sero.com.microcosmos.utils.ON_BACK_PRESSED_DELAY
+import sero.com.microcosmos.utils.toastIt
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private val model : MainViewModel by viewModels()
@@ -24,8 +24,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.goto_give_job -> { }
-            R.id.goto_search_job -> { }
+            R.id.goto_create_job -> {
+                nav_host.findNavController().navigate(R.id.createJobFragment)
+            }
+            R.id.goto_search_job -> {
+                nav_host.findNavController().navigate(R.id.searchFragment)
+            }
             R.id.goto_my_job -> { }
             R.id.goto_history -> { }
             R.id.goto_profile -> { }

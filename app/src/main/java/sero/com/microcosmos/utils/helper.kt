@@ -1,4 +1,4 @@
-package sero.com.microcosmos.view.utils
+package sero.com.microcosmos.utils
 
 import android.content.Context
 import android.text.Editable

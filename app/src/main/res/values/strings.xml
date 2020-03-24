@@ -14,4 +14,8 @@
     <string name="activity_login__connection_refused">Connexion refusée</string>
     <string name="activity_login__login_success">Connecté</string>
     <string name="activity_login__logout_success">Déconnecté</string>
+
+    <!-- Create activity -->
+    <string name="activity_create_job__create_job_success">Le job a été créé avec success</string>
+    <string name="activity_create_job__create_job_error">Impossible de créer le job pour le moment</string>
 </resources>

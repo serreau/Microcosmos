@@ -6,7 +6,7 @@ import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.postDelayed
 import sero.com.microcosmos.R
-import sero.com.microcosmos.view.utils.SPLASH_SCREEN_DELAY
+import sero.com.microcosmos.utils.SPLASH_SCREEN_DELAY
 import sero.com.microcosmos.view.main.MainActivity
 
 class SplashScreenActivity : AppCompatActivity() {

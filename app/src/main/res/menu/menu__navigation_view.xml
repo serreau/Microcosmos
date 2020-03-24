@@ -2,9 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:id="@+id/main">
         <item
-            android:id="@+id/goto_give_job"
+            android:id="@+id/goto_create_job"
             android:icon="@drawable/drawable_send"
-            android:title="Proposer un job"/>
+            android:title="Créer un job"/>
         <item
             android:id="@+id/goto_search_job"
             android:icon="@drawable/drawable_earth"

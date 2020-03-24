@@ -3,7 +3,7 @@ package sero.com.microcosmos.view.search
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.runBlocking
 import sero.com.microcosmos.data.repository.RemoteJobRepository
-import sero.com.microcosmos.view.utils.State
+import sero.com.microcosmos.utils.State
 
 class SearchViewModel : ViewModel() {
     private val remoteJobRepository : RemoteJobRepository = RemoteJobRepository()

@@ -1,0 +1,39 @@
+package sero.com.microcosmos.view.createJob
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.fragment_create_job.*
+import kotlinx.android.synthetic.main.fragment_search.navigationView
+import sero.com.microcosmos.R
+import sero.com.microcosmos.utils.getValue
+import sero.com.microcosmos.utils.toastIt
+
+class CreateJobFragment : Fragment() {
+    private val model: CreateJobViewModel by viewModels()
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.fragment_create_job, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        navigationView.setNavigationItemSelectedListener(activity as NavigationView.OnNavigationItemSelectedListener)
+
+        createJobButton.setOnClickListener {
+            val success = model.createJob(context, getValue( name )) ?: false
+            if(success) {
+                toastIt(context, getString(R.string.activity_create_job__create_job_success))
+                findNavController().navigate(R.id.searchFragment)
+            }
+            else
+                toastIt(context, getString(R.string.activity_create_job__create_job_error))
+        }
+    }
+
+}

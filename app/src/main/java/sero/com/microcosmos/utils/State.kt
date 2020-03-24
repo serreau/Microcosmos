@@ -1,4 +1,4 @@
-package sero.com.microcosmos.view.utils
+package sero.com.microcosmos.utils
 
 enum class State() {
     TODO(),

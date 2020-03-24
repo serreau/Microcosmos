@@ -12,5 +12,8 @@ interface UserDao {
 
     @Query("DELETE FROM USER")
     suspend fun disconnect()
+
+    @Query("SELECT login FROM USER LIMIT 1")
+    suspend fun getName() : String
 }
 
