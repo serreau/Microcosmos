@@ -1,4 +1,4 @@
-package sero.com.microcosmos.utils
+package sero.com.microcosmos.view.utils
 
 //URL
 const val BASE_URL = "http://www.microcosmos.org"

@@ -5,17 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.cardview.widget.CardView
-import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.card.MaterialCardView
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.fragment_search.*
 import kotlinx.android.synthetic.main.item__search_recycler_view.view.*
 import sero.com.microcosmos.R
 import sero.com.microcosmos.data.remote.response.JobGetResponse
+import sero.com.microcosmos.view.utils.getValue
 
 class SearchFragment : Fragment() {
     private val model: SearchViewModel by viewModels()
@@ -27,13 +27,21 @@ class SearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navigationView.setNavigationItemSelectedListener(activity as NavigationView.OnNavigationItemSelectedListener)
+        val searchAdapter = SearchAdapter()
         recyclerView.apply {
             layoutManager = LinearLayoutManager(context)
-            adapter = SearchAdapter()
+            adapter = searchAdapter
+        }
+        search.doAfterTextChanged { editable ->
+            searchAdapter.refresh(model.getSearch(getValue(editable)))
         }
     }
 
-    inner class SearchAdapter(private val list : List<JobGetResponse> = model.get() ) : RecyclerView.Adapter<SearchAdapter.SearchViewHolder>(){
+    inner class SearchAdapter(var list : List<JobGetResponse> = model.getSearch() ) : RecyclerView.Adapter<SearchAdapter.SearchViewHolder>(){
+        fun refresh(list : List<JobGetResponse>) {
+            this.list = list
+            notifyDataSetChanged()
+        }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchViewHolder {
             val card = LayoutInflater.from(parent.context)

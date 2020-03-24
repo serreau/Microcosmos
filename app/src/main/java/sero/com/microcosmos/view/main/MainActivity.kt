@@ -10,8 +10,8 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import sero.com.microcosmos.R
-import sero.com.microcosmos.utils.ON_BACK_PRESSED_DELAY
-import sero.com.microcosmos.utils.toastIt
+import sero.com.microcosmos.view.utils.ON_BACK_PRESSED_DELAY
+import sero.com.microcosmos.view.utils.toastIt
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private val model : MainViewModel by viewModels()

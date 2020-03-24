@@ -1,6 +1,7 @@
-package sero.com.microcosmos.utils
+package sero.com.microcosmos.view.utils
 
 import android.content.Context
+import android.text.Editable
 import android.widget.Toast
 import android.widget.Toast.LENGTH_SHORT
 import com.google.android.material.textfield.TextInputEditText
@@ -12,6 +13,8 @@ val retrofit : Retrofit = Retrofit.Builder()
     .addConverterFactory(GsonConverterFactory.create())
     .build()
 
-fun getValue(editable : TextInputEditText) = editable.text.toString()
+fun getValue(textInputEditText: TextInputEditText) = textInputEditText?.let { it.text.toString() }
+
+fun getValue(editable : Editable?) = editable.let { it.toString() }
 
 fun toastIt(context : Context?, text : String) = Toast.makeText(context, text, LENGTH_SHORT).show()

@@ -9,8 +9,8 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_login.*
 import sero.com.microcosmos.R
-import sero.com.microcosmos.utils.getValue
-import sero.com.microcosmos.utils.toastIt
+import sero.com.microcosmos.view.utils.getValue
+import sero.com.microcosmos.view.utils.toastIt
 
 class LoginFragment : Fragment() {
 
