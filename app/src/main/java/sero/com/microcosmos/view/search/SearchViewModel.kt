@@ -11,5 +11,4 @@ class SearchViewModel : ViewModel() {
     fun get() = runBlocking { remoteJobRepository.get() }
 
     fun getSearch(search : String = "") = runBlocking { remoteJobRepository.get(State.TODO.name, search) }
-
 }

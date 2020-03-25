@@ -7,6 +7,8 @@ import android.widget.Toast.LENGTH_SHORT
 import com.google.android.material.textfield.TextInputEditText
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 val retrofit : Retrofit = Retrofit.Builder()
     .baseUrl(BASE_URL)
@@ -18,3 +20,11 @@ fun getValue(textInputEditText: TextInputEditText) = textInputEditText?.let { it
 fun getValue(editable : Editable?) = editable.let { it.toString() }
 
 fun toastIt(context : Context?, text : String) = Toast.makeText(context, text, LENGTH_SHORT).show()
+
+fun iso8101(date : String) : LocalDateTime =
+    LocalDateTime.from(DateTimeFormatter.ISO_DATE_TIME.parse(date))
+
+fun z69_200(date : String) : String {
+    val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+    return iso8101(date).format(formatter)
+}

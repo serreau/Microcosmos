@@ -16,6 +16,8 @@ import kotlinx.android.synthetic.main.item__search_recycler_view.view.*
 import sero.com.microcosmos.R
 import sero.com.microcosmos.data.remote.response.JobGetResponse
 import sero.com.microcosmos.utils.getValue
+import sero.com.microcosmos.utils.iso8101
+import sero.com.microcosmos.utils.z69_200
 
 class SearchFragment : Fragment() {
     private val model: SearchViewModel by viewModels()
@@ -50,8 +52,9 @@ class SearchFragment : Fragment() {
         }
 
         override fun onBindViewHolder(holder: SearchViewHolder, position: Int) {
-            holder.itemView.owner.text = list[position].owner.toString()
-            holder.itemView.name.text = list[position].name.toString()
+            holder.itemView.owner.text = list[position].owner
+            holder.itemView.name.text = list[position].name
+            holder.itemView.date.text = z69_200(list[position].date)
         }
 
         override fun getItemCount() = list.size
