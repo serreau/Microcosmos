@@ -27,6 +27,8 @@ allprojects {
     repositories {
         google()
         jcenter()
+        //isafirm image picker
+        maven { url "https://jitpack.io" }
     }
 }
 

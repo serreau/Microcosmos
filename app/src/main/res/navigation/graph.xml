@@ -17,4 +17,8 @@
         android:id="@+id/createJobFragment"
         android:name="sero.com.microcosmos.view.createJob.CreateJobFragment"
         android:label="CreateJobFragment" />
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="sero.com.microcosmos.view.signUp.SignUpFragment"
+        android:label="signUpFragment" />
 </navigation>

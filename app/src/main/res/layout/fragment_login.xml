@@ -18,7 +18,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/colorPrimaryDark"
-        android:inputType="number"
         android:hint="@string/activity_login__login_wording"
         android:layout_margin="50dp"
         android:gravity="center"

@@ -52,7 +52,7 @@ class SearchFragment : Fragment() {
         }
 
         override fun onBindViewHolder(holder: SearchViewHolder, position: Int) {
-            holder.itemView.owner.text = list[position].owner
+            holder.itemView.owner.text = list[position].ownerFirstname
             holder.itemView.name.text = list[position].name
             holder.itemView.date.text = z69_200(list[position].date)
         }

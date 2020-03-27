@@ -18,4 +18,14 @@
     <!-- Create activity -->
     <string name="activity_create_job__create_job_success">Le job a été créé avec success</string>
     <string name="activity_create_job__create_job_error">Impossible de créer le job pour le moment</string>
+
+    <!-- SignUp Activity -->
+    <string name="activity_sign_up__validate">Valider</string>
+    <string name="activity_sign_up__firstname">Prénom</string>
+    <string name="activity_sign_up__lastname">Nom</string>
+    <string name="activity_sign_up__phone">Téléphone</string>
+    <string name="activity_sign_up__mail">E-mail</string>
+    <string name="activity_sign_up__password">Mot de passe</string>
+    <string name="activity_sign_up__sign_up_success">Inscription réussie</string>
+    <string name="activity_sign_up__sign_up_error">Inscription impossible pour le moment</string>
 </resources>

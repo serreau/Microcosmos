@@ -36,5 +36,7 @@ class LoginFragment : Fragment() {
                 toastIt(context, getString(R.string.activity_login__connection_refused))
             true
         }
+
+        signUpButton.setOnClickListener { _ -> findNavController().navigate(R.id.signUpFragment) }
     }
 }
