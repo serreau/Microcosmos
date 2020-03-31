@@ -1,6 +1,8 @@
 package sero.com.microcosmos.utils
 
 import android.content.Context
+import android.net.Uri
+import android.provider.MediaStore
 import android.text.Editable
 import android.widget.Toast
 import android.widget.Toast.LENGTH_SHORT
@@ -27,4 +29,18 @@ fun iso8101(date : String) : LocalDateTime =
 fun z69_200(date : String) : String {
     val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
     return iso8101(date).format(formatter)
+}
+
+fun Uri.getPathString(context: Context): String {
+    var path = ""
+    context.contentResolver.query(
+        this, arrayOf(MediaStore.Images.Media.DATA),
+        null, null, null
+    )?.apply {
+        val columnIndex = getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
+        moveToFirst()
+        path = getString(columnIndex)
+        close()
+    }
+    return path
 }

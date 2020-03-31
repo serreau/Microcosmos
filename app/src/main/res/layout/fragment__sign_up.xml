@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageButton
+        <ImageView
             android:id="@+id/image"
             android:layout_width="150dp"
             android:layout_height="150dp"
@@ -91,14 +91,14 @@
             app:layout_constraintTop_toBottomOf="@id/mail"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/createJobButton"
+            app:layout_constraintBottom_toTopOf="@id/validate"
             android:gravity="center"
             android:backgroundTint="@color/colorPrimaryDark"
             android:layout_marginHorizontal="50dp"
             android:hint="@string/activity_sign_up__password"/>
         
         <TextView
-            android:id="@+id/createJobButton"
+            android:id="@+id/validate"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             app:layout_constraintBottom_toBottomOf="parent"

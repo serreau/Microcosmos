@@ -14,7 +14,7 @@ import sero.com.microcosmos.utils.ON_BACK_PRESSED_DELAY
 import sero.com.microcosmos.utils.toastIt
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
-    private val model : MainViewModel by viewModels()
+    private val viewmodel : MainViewModel by viewModels()
     private var isBackStackActive = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.goto_setting -> { }
             R.id.goto_logout -> {
                 nav_host.findNavController().navigate(R.id.loginFragment)
-                model.disconnect(this)
+                viewmodel.disconnect(this)
                 toastIt(this, getString(R.string.activity_login__logout_success))
             }
         }

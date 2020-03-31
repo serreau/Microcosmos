@@ -14,21 +14,21 @@ import sero.com.microcosmos.utils.toastIt
 
 class LoginFragment : Fragment() {
 
-    private val model: LoginViewModel by viewModels()
+    private val viewmodel: LoginViewModel by viewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View =
         inflater.inflate(R.layout.fragment_login, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if(model.stillConnected(context))
+        if(viewmodel.stillConnected(context))
             findNavController().navigate(R.id.searchFragment)
         initListener();
     }
 
     private fun initListener() {
         connectButton.setOnTouchListener { _, _ ->
-            if (model.connect(context, getValue(login), getValue(password))){
+            if (viewmodel.connect(context, getValue(login), getValue(password))){
                 findNavController().navigate(R.id.searchFragment)
                 toastIt(context, getString(R.string.activity_login__login_success))
             }
@@ -36,7 +36,6 @@ class LoginFragment : Fragment() {
                 toastIt(context, getString(R.string.activity_login__connection_refused))
             true
         }
-
         signUpButton.setOnClickListener { _ -> findNavController().navigate(R.id.signUpFragment) }
     }
 }

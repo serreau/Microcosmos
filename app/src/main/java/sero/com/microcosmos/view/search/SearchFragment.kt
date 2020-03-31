@@ -16,11 +16,10 @@ import kotlinx.android.synthetic.main.item__search_recycler_view.view.*
 import sero.com.microcosmos.R
 import sero.com.microcosmos.data.remote.response.JobGetResponse
 import sero.com.microcosmos.utils.getValue
-import sero.com.microcosmos.utils.iso8101
 import sero.com.microcosmos.utils.z69_200
 
 class SearchFragment : Fragment() {
-    private val model: SearchViewModel by viewModels()
+    private val viewmodel: SearchViewModel by viewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_search, container, false)
@@ -35,11 +34,11 @@ class SearchFragment : Fragment() {
             adapter = searchAdapter
         }
         search.doAfterTextChanged { editable ->
-            searchAdapter.refresh(model.getSearch(getValue(editable)))
+            searchAdapter.refresh(viewmodel.getSearch(getValue(editable)))
         }
     }
 
-    inner class SearchAdapter(var list : List<JobGetResponse> = model.getSearch() ) : RecyclerView.Adapter<SearchAdapter.SearchViewHolder>(){
+    inner class SearchAdapter(var list : List<JobGetResponse> = viewmodel.getSearch() ) : RecyclerView.Adapter<SearchAdapter.SearchViewHolder>(){
         fun refresh(list : List<JobGetResponse>) {
             this.list = list
             notifyDataSetChanged()

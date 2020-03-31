@@ -1,26 +1,30 @@
 package sero.com.microcosmos.view.signUp
 
+import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.esafirm.imagepicker.features.ImagePicker
-import com.squareup.picasso.Picasso
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.fragment__sign_up.*
-import kotlinx.android.synthetic.main.fragment_create_job.createJobButton
 import sero.com.microcosmos.R
+import sero.com.microcosmos.utils.getPathString
 import sero.com.microcosmos.utils.getValue
 import sero.com.microcosmos.utils.toastIt
 import java.io.File
 
 
 class SignUpFragment : Fragment() {
-    private val model: SignUpViewModel by viewModels()
+    private val viewmodel: SignUpViewModel by viewModels()
+
+    private val RESULT_LOAD_IMAGE: Int = 1
+    var picked : File = File("")
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment__sign_up, container, false)
@@ -28,17 +32,19 @@ class SignUpFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         initListener()
     }
 
     private fun initListener() {
-        createJobButton.setOnClickListener {
-            val success = model.insertUser(getValue(firstname),
+
+        validate.setOnClickListener {
+            val success = viewmodel.insertUser(getValue(firstname),
                 getValue(lastname),
                 getValue(phone),
                 getValue(mail),
-                getValue(password))
+                getValue(password),
+                picked
+            )
             if(success) {
                 toastIt(context, getString(R.string.activity_sign_up__sign_up_success))
                 findNavController().navigate(R.id.loginFragment)
@@ -47,20 +53,21 @@ class SignUpFragment : Fragment() {
                 toastIt(context, getString(R.string.activity_sign_up__sign_up_error))
         }
         image.setOnClickListener{
-            ImagePicker.create(this)
-                .single()
-                .start();
+            val i = Intent( Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+            startActivityForResult(i, RESULT_LOAD_IMAGE)
         }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (ImagePicker.shouldHandle(requestCode, resultCode, data)) {
-            val picked = Uri.fromFile( File(ImagePicker.getFirstImageOrNull(data).path))
-            Picasso.get()
+        if (resultCode == RESULT_OK && requestCode == RESULT_LOAD_IMAGE){
+
+            val pickedUri = data?.data ?: Uri.EMPTY
+            picked = File(pickedUri.getPathString(context!!))
+
+            Glide.with(this)
                 .load(picked)
                 .placeholder(R.mipmap.bee)
-                .resize(image.width, image.height)
                 .centerInside()
                 .error(R.mipmap.bee)
                 .into(image)

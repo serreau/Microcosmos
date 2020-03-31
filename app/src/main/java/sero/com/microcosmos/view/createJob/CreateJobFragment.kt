@@ -15,7 +15,7 @@ import sero.com.microcosmos.utils.getValue
 import sero.com.microcosmos.utils.toastIt
 
 class CreateJobFragment : Fragment() {
-    private val model: CreateJobViewModel by viewModels()
+    private val viewmodel: CreateJobViewModel by viewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_create_job, container, false)
@@ -26,7 +26,7 @@ class CreateJobFragment : Fragment() {
         navigationView.setNavigationItemSelectedListener(activity as NavigationView.OnNavigationItemSelectedListener)
 
         createJobButton.setOnClickListener {
-            val success = model.createJob(context, getValue( name )) ?: false
+            val success = viewmodel.createJob(context, getValue( name )) ?: false
             if(success) {
                 toastIt(context, getString(R.string.activity_create_job__create_job_success))
                 findNavController().navigate(R.id.searchFragment)
