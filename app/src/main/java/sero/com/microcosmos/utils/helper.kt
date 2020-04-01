@@ -33,13 +33,10 @@ fun z69_200(date : String) : String {
 
 fun Uri.getPathString(context: Context): String {
     var path = ""
-    context.contentResolver.query(
-        this, arrayOf(MediaStore.Images.Media.DATA),
-        null, null, null
-    )?.apply {
-        val columnIndex = getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
+    context.contentResolver.query(this, arrayOf(MediaStore.Images.Media.DATA), null, null, null)
+        ?.apply {
         moveToFirst()
-        path = getString(columnIndex)
+        path = getString(0)
         close()
     }
     return path

@@ -18,7 +18,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:src="@mipmap/bee"
+            android:src="@mipmap/drawable_bee_2"
             android:alpha="0.1"/>
 
         <androidx.recyclerview.widget.RecyclerView

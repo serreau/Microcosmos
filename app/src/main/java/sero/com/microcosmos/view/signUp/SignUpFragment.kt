@@ -61,12 +61,10 @@ class SignUpFragment : Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == RESULT_OK && requestCode == RESULT_LOAD_IMAGE){
-
             val pickedUri = data?.data ?: Uri.EMPTY
             picked = File(pickedUri.getPathString(context!!))
-
             Glide.with(this)
-                .load(picked)
+                .load(pickedUri)
                 .placeholder(R.mipmap.bee)
                 .centerInside()
                 .error(R.mipmap.bee)
