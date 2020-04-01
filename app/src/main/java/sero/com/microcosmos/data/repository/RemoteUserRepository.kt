@@ -1,10 +1,15 @@
 package sero.com.microcosmos.data.repository
 
+import android.content.Context
+import android.widget.ImageView
+import com.bumptech.glide.Glide
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
+import sero.com.microcosmos.R
 import sero.com.microcosmos.data.remote.UserRemote
 import sero.com.microcosmos.data.remote.request.body.UserExistBody
 import sero.com.microcosmos.data.remote.request.body.UserInsertBody
+import sero.com.microcosmos.utils.BASE_URL
 import sero.com.microcosmos.utils.retrofit
 import java.io.File
 
@@ -29,5 +34,13 @@ class RemoteUserRepository {
 
         return remote.insert(UserInsertBody(firstname, lastname, phone, mail, password)).success
                 && remote.insert(requestName, requestBody).success
+    }
+
+    fun setImage(context: Context, owner: String?, image: ImageView) {
+        Glide.with(context!!)
+            .load(BASE_URL+"/user/image/"+owner)
+            .error(R.mipmap.bee)
+            .placeholder(R.mipmap.bee)
+            .into(image)
     }
 }

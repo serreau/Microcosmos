@@ -84,6 +84,10 @@ dependencies {
     // Image Picker and Glide
     implementation 'com.github.bumptech.glide:glide:4.11.0'
 
+    //Circle Image View
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+
     //Permission Dexter (NOT NEED BUT VERY NICE)
     //implementation 'com.karumi:dexter:6.0.2'
 

@@ -51,9 +51,12 @@ class SearchFragment : Fragment() {
         }
 
         override fun onBindViewHolder(holder: SearchViewHolder, position: Int) {
-            holder.itemView.owner.text = list[position].ownerFirstname
-            holder.itemView.name.text = list[position].name
-            holder.itemView.date.text = z69_200(list[position].date)
+            with(list[position]) {
+                viewmodel.setImage(context!!, ownerMail, holder.itemView.image)
+                holder.itemView.owner.text = ownerFirstname
+                holder.itemView.name.text = name
+                holder.itemView.date.text = z69_200(date)
+            }
         }
 
         override fun getItemCount() = list.size

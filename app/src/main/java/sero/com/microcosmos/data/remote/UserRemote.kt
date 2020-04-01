@@ -22,5 +22,5 @@ interface UserRemote {
     ) : DefaultResponse
 
     @GET("/user/image/{owner}")
-    suspend fun get(@Path("owner") owner : String) : File
+    suspend fun getImage(@Path("owner") owner : String) : File
 }
