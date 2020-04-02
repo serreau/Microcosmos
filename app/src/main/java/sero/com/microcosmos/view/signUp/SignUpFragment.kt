@@ -53,7 +53,7 @@ class SignUpFragment : Fragment() {
                 toastIt(context, getString(R.string.activity_sign_up__sign_up_error))
         }
         image.setOnClickListener{
-            val i = Intent( Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+            val i = Intent( Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
             startActivityForResult(i, RESULT_LOAD_IMAGE)
         }
     }

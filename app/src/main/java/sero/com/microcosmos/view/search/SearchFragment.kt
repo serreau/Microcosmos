@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.navigation.NavigationView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.fragment_search.*
 import kotlinx.android.synthetic.main.item__search_recycler_view.view.*
 import sero.com.microcosmos.R
@@ -27,7 +27,7 @@ class SearchFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        navigationView.setNavigationItemSelectedListener(activity as NavigationView.OnNavigationItemSelectedListener)
+        bottomNavigationView.setOnNavigationItemSelectedListener(activity as BottomNavigationView.OnNavigationItemSelectedListener)
         val searchAdapter = SearchAdapter()
         recyclerView.apply {
             layoutManager = LinearLayoutManager(context)

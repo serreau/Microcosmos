@@ -7,9 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.navigation.NavigationView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.fragment_create_job.*
-import kotlinx.android.synthetic.main.fragment_search.navigationView
 import sero.com.microcosmos.R
 import sero.com.microcosmos.utils.getValue
 import sero.com.microcosmos.utils.toastIt
@@ -23,8 +22,7 @@ class CreateJobFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        navigationView.setNavigationItemSelectedListener(activity as NavigationView.OnNavigationItemSelectedListener)
-
+        bottomNavigationView.setOnNavigationItemSelectedListener(activity as BottomNavigationView.OnNavigationItemSelectedListener)
         createJobButton.setOnClickListener {
             val success = viewmodel.createJob(context, getValue( name )) ?: false
             if(success) {

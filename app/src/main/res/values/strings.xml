@@ -28,4 +28,10 @@
     <string name="activity_sign_up__password">Mot de passe</string>
     <string name="activity_sign_up__sign_up_success">Inscription réussie</string>
     <string name="activity_sign_up__sign_up_error">Inscription impossible pour le moment</string>
+
+    <!-- BOTTOM NAVIGATION VIEW -->
+    <string name="bottom_navigation_create">Créer</string>
+    <string name="bottom_navigation_map">Carte</string>
+    <string name="bottom_navigation_list">Liste</string>
+    <string name="bottom_navigation_menu">Menu</string>
 </resources>

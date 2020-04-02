@@ -7,13 +7,13 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.postDelayed
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.navigation.NavigationView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import sero.com.microcosmos.R
 import sero.com.microcosmos.utils.ON_BACK_PRESSED_DELAY
 import sero.com.microcosmos.utils.toastIt
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
     private val viewmodel : MainViewModel by viewModels()
     private var isBackStackActive = false
 
@@ -23,23 +23,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.goto_create_job -> {
-                nav_host.findNavController().navigate(R.id.createJobFragment)
+            when (item.itemId) {
+                R.id.goto_show_map -> {}
+                R.id.goto_show_list -> {}
+                R.id.goto_create_job -> {
+                    nav_host.findNavController().navigate(R.id.createJobFragment)
+                }
+                R.id.goto_menu -> {}
+                else -> {}
             }
-            R.id.goto_search_job -> {
-                nav_host.findNavController().navigate(R.id.searchFragment)
-            }
-            R.id.goto_my_job -> { }
-            R.id.goto_history -> { }
-            R.id.goto_profile -> { }
-            R.id.goto_setting -> { }
-            R.id.goto_logout -> {
-                nav_host.findNavController().navigate(R.id.loginFragment)
-                viewmodel.disconnect(this)
-                toastIt(this, getString(R.string.activity_login__logout_success))
-            }
-        }
         return true
     }
 

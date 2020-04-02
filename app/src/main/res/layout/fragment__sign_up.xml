@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,122 +7,105 @@
     android:layout_height="match_parent"
     tools:openDrawer="start">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/image"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:src="@mipmap/bee"
-            app:layout_constraintTop_toBottomOf="@id/toolbar"
-            app:layout_constraintBottom_toTopOf="@id/firstname"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:clickable="true"
-            app:civ_border_width="1dp"
-            app:civ_border_color="@color/colorPrimaryDark"/>
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/bee"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:src="@mipmap/drawable_bee_2"
-            android:alpha="0.1"/>
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/firstname"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/image"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/lastname"
-            android:gravity="center"
-            android:backgroundTint="@color/colorPrimaryDark"
-            android:layout_marginHorizontal="50dp"
-            android:hint="@string/activity_sign_up__firstname"/>
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/lastname"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/firstname"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/phone"
-            android:gravity="center"
-            android:backgroundTint="@color/colorPrimaryDark"
-            android:layout_marginHorizontal="50dp"
-            android:hint="@string/activity_sign_up__lastname"/>
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/phone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/lastname"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/mail"
-            android:gravity="center"
-            android:backgroundTint="@color/colorPrimaryDark"
-            android:layout_marginHorizontal="50dp"
-            android:hint="@string/activity_sign_up__phone"/>
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/mail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/phone"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/password"
-            android:gravity="center"
-            android:backgroundTint="@color/colorPrimaryDark"
-            android:layout_marginHorizontal="50dp"
-            android:hint="@string/activity_sign_up__mail"/>
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/mail"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/validate"
-            android:gravity="center"
-            android:backgroundTint="@color/colorPrimaryDark"
-            android:layout_marginHorizontal="50dp"
-            android:hint="@string/activity_sign_up__password"/>
-        
-        <TextView
-            android:id="@+id/validate"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:clickable="true"
-            android:text="@string/activity_sign_up__validate"
-            android:gravity="center"/>
-
-        <include android:id="@+id/toolbar" layout="@layout/toolbar"/>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/navigationView"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/image"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@mipmap/bee"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toTopOf="@id/firstname"
         app:layout_constraintStart_toStartOf="parent"
-        app:headerLayout="@layout/header__navigation_view"
-        app:menu="@menu/menu__navigation_view"
-        android:visibility="gone"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        android:clickable="true"
+        app:civ_border_width="1dp"
+        app:civ_border_color="@color/colorPrimaryDark"/>
 
-</androidx.drawerlayout.widget.DrawerLayout>
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/bee"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@mipmap/drawable_bee_2"
+        android:alpha="0.1"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/firstname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/lastname"
+        android:gravity="center"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:layout_marginHorizontal="50dp"
+        android:hint="@string/activity_sign_up__firstname"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/lastname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/firstname"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/phone"
+        android:gravity="center"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:layout_marginHorizontal="50dp"
+        android:hint="@string/activity_sign_up__lastname"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/lastname"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/mail"
+        android:gravity="center"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:layout_marginHorizontal="50dp"
+        android:hint="@string/activity_sign_up__phone"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/mail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/phone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/password"
+        android:gravity="center"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:layout_marginHorizontal="50dp"
+        android:hint="@string/activity_sign_up__mail"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/mail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/validate"
+        android:gravity="center"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:layout_marginHorizontal="50dp"
+        android:hint="@string/activity_sign_up__password"/>
+
+    <TextView
+        android:id="@+id/validate"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:clickable="true"
+        android:text="@string/activity_sign_up__validate"
+        android:gravity="center"/>
+
+    <include android:id="@+id/toolbar" layout="@layout/toolbar"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
