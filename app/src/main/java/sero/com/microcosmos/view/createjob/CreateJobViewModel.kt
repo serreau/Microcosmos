@@ -12,8 +12,8 @@ class CreateJobViewModel : ViewModel() {
 
     fun createJob(context : Context?, name : String) = runBlocking {
         context?.let {
-            val username = localUserRepository.getUserName(it)
-            remoteJobRepository.insert(username, name)
+            val username :String? = localUserRepository.getUserName(it)
+            if (username != null) remoteJobRepository.insert(username, name) else false
         }
     }
 }
