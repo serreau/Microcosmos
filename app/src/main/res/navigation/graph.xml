@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/createJobFragment"
-        android:name="sero.com.microcosmos.view.createJob.CreateJobFragment"
+        android:name="sero.com.microcosmos.view.createjob.CreateJobFragment"
         android:label="CreateJobFragment" />
     <fragment
         android:id="@+id/signUpFragment"
@@ -29,4 +29,8 @@
         android:id="@+id/profileFragment"
         android:name="sero.com.microcosmos.view.profile.ProfileFragment"
         android:label="ProfileFragment" />
+    <fragment
+        android:id="@+id/detailJobFragment"
+        android:name="sero.com.microcosmos.view.detailjob.DetailJobFragment"
+        android:label="DetailJobFragment" />
 </navigation>

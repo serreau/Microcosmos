@@ -15,8 +15,8 @@ import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.fragment__sign_up.*
 import sero.com.microcosmos.R
 import sero.com.microcosmos.utils.getValue
+import sero.com.microcosmos.utils.toFile
 import sero.com.microcosmos.utils.toastIt
-import sero.com.microcosmos.utils.uriToFile
 import java.io.File
 
 
@@ -39,7 +39,7 @@ class SignUpFragment : Fragment() {
     private fun initListener() {
 
         validate.setOnClickListener {
-            picked = uriToFile(context!!, uri)
+            picked = uri.toFile(context!!)
             val success = viewmodel.insertUser(getValue(firstname),
                 getValue(lastname),
                 getValue(phone),

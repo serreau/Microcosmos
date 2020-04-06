@@ -9,6 +9,6 @@ class ProfileViewModel : ViewModel() {
     private val localUserRepository : LocalUserRepository = LocalUserRepository()
 
     fun disconnect(context: Context) = runBlocking {
-        context?.let { localUserRepository.disconnect(it) }
+        context.let { localUserRepository.disconnect(it) }
     }
 }

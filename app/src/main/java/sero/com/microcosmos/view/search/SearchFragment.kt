@@ -8,6 +8,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fragment_search.*
@@ -17,6 +18,7 @@ import sero.com.microcosmos.data.remote.response.JobGetResponse
 import sero.com.microcosmos.utils.State
 import sero.com.microcosmos.utils.getValue
 import sero.com.microcosmos.utils.z69_200
+import sero.com.microcosmos.view.detailjob.DetailJobFragment.Companion.JOB_ID
 
 class SearchFragment (var state : State = State.TODO) : Fragment() {
     private val viewmodel: SearchViewModel by viewModels()
@@ -63,6 +65,10 @@ class SearchFragment (var state : State = State.TODO) : Fragment() {
                     itemView.owner.text = ownerFirstname
                     itemView.name.text = name
                     itemView.date.text = z69_200(date)
+                    itemView.setOnClickListener{
+                        val b = Bundle().apply { putString(JOB_ID, _id) }
+                        findNavController().navigate(R.id.detailJobFragment, b)
+                    }
                 }
             }
         }

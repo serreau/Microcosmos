@@ -12,6 +12,9 @@ interface JobRemote {
     @GET("/job/get")
     suspend fun get() : List<JobGetResponse>
 
+    @GET("/job/get/{id}")
+    suspend fun get(@Path("id") id : String) : JobGetResponse
+
     @GET("/job/get/state/{state}/search/{search}")
     suspend fun get(@Path("state") state : String,
                     @Path("search") search : String) : List<JobGetResponse>

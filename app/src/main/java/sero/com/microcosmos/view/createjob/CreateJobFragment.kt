@@ -1,4 +1,4 @@
-package sero.com.microcosmos.view.createJob
+package sero.com.microcosmos.view.createjob
 
 import android.os.Bundle
 import android.view.LayoutInflater

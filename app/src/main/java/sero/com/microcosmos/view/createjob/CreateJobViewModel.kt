@@ -1,4 +1,4 @@
-package sero.com.microcosmos.view.createJob
+package sero.com.microcosmos.view.createjob
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
@@ -13,7 +13,7 @@ class CreateJobViewModel : ViewModel() {
     fun createJob(context : Context?, name : String) = runBlocking {
         context?.let {
             val username = localUserRepository.getUserName(it)
-            if (username != null) remoteJobRepository.insert(username, name) else false
+            remoteJobRepository.insert(username, name)
         }
     }
 }

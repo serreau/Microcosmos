@@ -33,6 +33,12 @@
     <string name="activity_profile__logout">Déconnexion</string>
     <string name="activity_profile__logout_success">Déconnecté</string>
 
+    <!-- Detail Activity -->
+    <string name="activity_detail__offer_title">Titre</string>
+    <string name="activity_detail__offer_owner">Auteur</string>
+    <string name="activity_detail__offer_date">Date</string>
+    <string name="activity_detail__offer_validate">Faire une offre</string>
+
     <!-- BOTTOM NAVIGATION VIEW -->
     <string name="bottom_navigation_new">Nouveau</string>
     <string name="bottom_navigation_notification">Notifications</string>

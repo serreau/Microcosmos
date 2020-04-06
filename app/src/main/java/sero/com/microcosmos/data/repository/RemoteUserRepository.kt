@@ -37,7 +37,7 @@ class RemoteUserRepository {
     }
 
     fun setImage(context: Context, owner: String?, image: ImageView) {
-        Glide.with(context!!)
+        Glide.with(context)
             .load(BASE_URL+"/user/image/"+owner)
             .error(R.mipmap.bee)
             .placeholder(R.mipmap.bee)

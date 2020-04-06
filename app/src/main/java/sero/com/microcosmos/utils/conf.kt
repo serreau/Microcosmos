@@ -1,5 +1,8 @@
 package sero.com.microcosmos.utils
 
+//APP NAME
+const val APP_NAME = "microcosmos"
+
 //URL
 const val BASE_URL = "http://www.microcosmos.org"
 //const val BASE_URL = "http://localhost:3000"

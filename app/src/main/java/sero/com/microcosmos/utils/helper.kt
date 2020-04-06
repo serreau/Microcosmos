@@ -21,7 +21,7 @@ val retrofit : Retrofit = Retrofit.Builder()
     .addConverterFactory(GsonConverterFactory.create())
     .build()
 
-fun getValue(textInputEditText: TextInputEditText) = textInputEditText?.let { it.text.toString() }
+fun getValue(textInputEditText: TextInputEditText) = textInputEditText.let { it.text.toString() }
 
 fun getValue(editable : Editable?) = editable.let { it.toString() }
 
@@ -35,26 +35,13 @@ fun z69_200(date : String) : String {
     return iso8101(date).format(formatter)
 }
 
-fun Uri.getPathString(context: Context): String {
-    var path = ""
-    context.contentResolver.query(this, arrayOf(MediaStore.Images.Media.DATA), null, null, null)
-        ?.apply {
-        moveToFirst()
-        path = getString(0)
-        close()
-    }
-    return path
-}
-
-fun uriToFile(context : Context, uri : Uri): File {
-    var file = File("")
-    val parcelFileDescriptor = context.contentResolver.openFileDescriptor(uri, "r", null)
+fun Uri.toFile(context : Context): File {
+    val picked = File(context.cacheDir, APP_NAME)
+    val parcelFileDescriptor = context.contentResolver.openFileDescriptor(this, "r", null)
     parcelFileDescriptor?.let {
-        val picked = File(context!!.cacheDir, "tmp")
         val inputStream = FileInputStream(parcelFileDescriptor.fileDescriptor)
         val outputStream = FileOutputStream(picked)
         IOUtils.copy(inputStream, outputStream)
-        file = picked
     }
-    return file
+    return picked
 }
