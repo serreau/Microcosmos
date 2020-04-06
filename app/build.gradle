@@ -87,6 +87,9 @@ dependencies {
     //Circle Image View
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
+    //Apache Common
+    implementation group: 'commons-io', name: 'commons-io', version: '2.5'
+
 
     //Permission Dexter (NOT NEED BUT VERY NICE)
     //implementation 'com.karumi:dexter:6.0.2'

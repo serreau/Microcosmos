@@ -6,7 +6,12 @@ import kotlinx.coroutines.runBlocking
 import sero.com.microcosmos.data.repository.LocalUserRepository
 
 class MainViewModel : ViewModel() {
-    fun disconnect(context: Context) = runBlocking {
-        context?.let { LocalUserRepository().disconnect(it) }
-    }
+    private val localUserRepository : LocalUserRepository = LocalUserRepository()
+
+    fun stillConnected(context : Context?) =
+        runBlocking {
+            context?.let {
+                localUserRepository.stillConnected(it)
+            }
+        } ?: false
 }

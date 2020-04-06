@@ -13,8 +13,7 @@
         android:roundIcon="@mipmap/bee"
         android:supportsRtl="true"
         android:theme="@style/Microcosmos"
-        android:usesCleartextTraffic="true"
-        android:requestLegacyExternalStorage="true">
+        android:usesCleartextTraffic="true">
         <activity android:name=".view.SplashScreenActivity"
             android:theme="@style/Microcosmos.Splash">
             <intent-filter>

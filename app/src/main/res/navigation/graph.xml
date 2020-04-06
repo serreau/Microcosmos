@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/graph"
-    app:startDestination="@id/searchFragment">
+    app:startDestination="@id/viewPagerFragment">
     <fragment
         android:id="@+id/loginFragment"
         android:name="sero.com.microcosmos.view.login.LoginFragment"
@@ -21,4 +21,12 @@
         android:id="@+id/signUpFragment"
         android:name="sero.com.microcosmos.view.signUp.SignUpFragment"
         android:label="signUpFragment" />
+    <fragment
+        android:id="@+id/viewPagerFragment"
+        android:name="sero.com.microcosmos.view.viewpager.ViewPagerFragment"
+        android:label="ViewPagerFragment" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="sero.com.microcosmos.view.profile.ProfileFragment"
+        android:label="ProfileFragment" />
 </navigation>

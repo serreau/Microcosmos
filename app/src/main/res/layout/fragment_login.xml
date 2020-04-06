@@ -65,6 +65,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/connectButton" />
 
-    <include android:id="@+id/toolbar" layout="@layout/toolbar"/>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

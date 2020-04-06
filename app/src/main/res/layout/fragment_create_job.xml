@@ -7,16 +7,6 @@
     android:layout_height="match_parent"
     tools:openDrawer="start">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/bee"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@mipmap/bee"
-        android:alpha="0.1"/>
-
     <TextView
         android:id="@+id/createJobWording"
         android:layout_width="match_parent"
@@ -49,22 +39,5 @@
         android:clickable="true"
         android:text="Créer le Job"
         android:gravity="center"/>
-
-
-    <include android:id="@+id/toolbar" layout="@layout/toolbar"/>
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:color/white"
-        app:menu="@menu/menu__bottom_navigation_view"
-        app:itemIconTint="@color/colorPrimaryDark"
-        app:itemTextColor="@color/colorPrimaryDark"
-        android:layout_alignParentBottom="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:labelVisibilityMode="unlabeled"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

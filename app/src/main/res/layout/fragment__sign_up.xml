@@ -12,23 +12,13 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:src="@mipmap/bee"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/firstname"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:clickable="true"
         app:civ_border_width="1dp"
         app:civ_border_color="@color/colorPrimaryDark"/>
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/bee"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@mipmap/drawable_bee_2"
-        android:alpha="0.1"/>
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/firstname"
@@ -106,6 +96,5 @@
         android:text="@string/activity_sign_up__validate"
         android:gravity="center"/>
 
-    <include android:id="@+id/toolbar" layout="@layout/toolbar"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

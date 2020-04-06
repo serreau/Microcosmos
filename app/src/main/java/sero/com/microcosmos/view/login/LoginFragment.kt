@@ -21,8 +21,7 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if(viewmodel.stillConnected(context))
-            findNavController().navigate(R.id.searchFragment)
+        if(viewmodel.stillConnected(context)) findNavController().navigate(R.id.profileFragment)
         initListener();
     }
 

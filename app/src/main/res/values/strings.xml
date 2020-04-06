@@ -13,11 +13,11 @@
     <string name="activity_login__sign_up_wording">S\'inscrire</string>
     <string name="activity_login__connection_refused">Connexion refusée</string>
     <string name="activity_login__login_success">Connecté</string>
-    <string name="activity_login__logout_success">Déconnecté</string>
 
     <!-- Create activity -->
     <string name="activity_create_job__create_job_success">Le job a été créé avec success</string>
     <string name="activity_create_job__create_job_error">Impossible de créer le job pour le moment</string>
+    <string name="activity_create_job__create_job_login_required">Connexion requise</string>
 
     <!-- SignUp Activity -->
     <string name="activity_sign_up__validate">Valider</string>
@@ -29,9 +29,14 @@
     <string name="activity_sign_up__sign_up_success">Inscription réussie</string>
     <string name="activity_sign_up__sign_up_error">Inscription impossible pour le moment</string>
 
+    <!-- Profile Activity -->
+    <string name="activity_profile__logout">Déconnexion</string>
+    <string name="activity_profile__logout_success">Déconnecté</string>
+
     <!-- BOTTOM NAVIGATION VIEW -->
-    <string name="bottom_navigation_create">Créer</string>
-    <string name="bottom_navigation_map">Carte</string>
-    <string name="bottom_navigation_list">Liste</string>
-    <string name="bottom_navigation_menu">Menu</string>
+    <string name="bottom_navigation_new">Nouveau</string>
+    <string name="bottom_navigation_notification">Notifications</string>
+    <string name="bottom_navigation_chat">Messages</string>
+    <string name="bottom_navigation_board">Tableau</string>
+    <string name="bottom_navigation_profile">Profil</string>
 </resources>

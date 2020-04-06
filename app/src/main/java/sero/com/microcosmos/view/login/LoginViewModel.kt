@@ -13,7 +13,7 @@ class LoginViewModel : ViewModel() {
     fun connect(context : Context?, login : String, password : String) =
         runBlocking {
             remoteUserRepository.connect(login, password).also {
-                context?.let { rememberMe(it, login, password)}
+                if(it) context?.let { rememberMe(it, login, password) }
             }
         }
 

@@ -7,6 +7,6 @@
     <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@mipmap/bee"/>
+        android:src="@mipmap/drawable_bee_2"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

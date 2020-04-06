@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/goto_show_map"
-        android:icon="@drawable/drawable_earth"
-        android:title="@string/bottom_navigation_map" />
+        android:id="@+id/goto_profile"
+        android:icon="@drawable/drawable_profile"
+        android:title="@string/bottom_navigation_profile"/>
     <item
-        android:id="@+id/goto_show_list"
-        android:icon="@drawable/drawable_list"
-        android:title="@string/bottom_navigation_list"
-        android:visible="false"/>
+        android:id="@+id/goto_show_chat"
+        android:icon="@drawable/drawable_chat"
+        android:title="@string/bottom_navigation_chat"/>
     <item
-        android:id="@+id/goto_create_job"
+        android:id="@+id/goto_new_job"
         android:icon="@drawable/drawable_add_box"
-        android:title="@string/bottom_navigation_create"/>
+        android:title="@string/bottom_navigation_new"/>
     <item
-        android:id="@+id/goto_menu"
-        android:icon="@drawable/drawable_menu"
-        android:title="@string/bottom_navigation_menu"/>
+        android:id="@+id/goto_board"
+        android:icon="@drawable/drawable_column"
+        android:title="@string/bottom_navigation_board"/>
+    <item
+        android:id="@+id/goto_show_notification"
+        android:icon="@drawable/drawable_notification"
+        android:title="@string/bottom_navigation_notification" />
 </menu>

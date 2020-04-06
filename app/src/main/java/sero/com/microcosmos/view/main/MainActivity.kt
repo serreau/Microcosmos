@@ -20,16 +20,21 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        bottomNavigationView.setOnNavigationItemSelectedListener(this)
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
             when (item.itemId) {
-                R.id.goto_show_map -> {}
-                R.id.goto_show_list -> {}
-                R.id.goto_create_job -> {
-                    nav_host.findNavController().navigate(R.id.createJobFragment)
+                R.id.goto_profile -> {
+                    if(viewmodel.stillConnected(this))
+                        nav_host.findNavController().navigate(R.id.profileFragment)
+                    else
+                        nav_host.findNavController().navigate(R.id.loginFragment)
                 }
-                R.id.goto_menu -> {}
+                R.id.goto_show_chat -> {}
+                R.id.goto_new_job -> { nav_host.findNavController().navigate(R.id.createJobFragment) }
+                R.id.goto_board -> { nav_host.findNavController().navigate(R.id.viewPagerFragment) }
+                R.id.goto_show_notification -> {}
                 else -> {}
             }
         return true

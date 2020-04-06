@@ -14,7 +14,7 @@ class SearchViewModel : ViewModel() {
 
     fun get() = runBlocking { remoteJobRepository.get() }
 
-    fun getSearch(search : String = "") = runBlocking { remoteJobRepository.get(State.TODO.name, search) }
+    fun getSearch(state : State = State.TODO, search : String = "") = runBlocking { remoteJobRepository.get(state.name, search) }
 
     fun setImage(
         context: Context,

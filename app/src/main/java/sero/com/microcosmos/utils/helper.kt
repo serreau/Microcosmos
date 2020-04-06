@@ -7,8 +7,12 @@ import android.text.Editable
 import android.widget.Toast
 import android.widget.Toast.LENGTH_SHORT
 import com.google.android.material.textfield.TextInputEditText
+import org.apache.commons.io.IOUtils
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.io.File
+import java.io.FileInputStream
+import java.io.FileOutputStream
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
@@ -40,4 +44,17 @@ fun Uri.getPathString(context: Context): String {
         close()
     }
     return path
+}
+
+fun uriToFile(context : Context, uri : Uri): File {
+    var file = File("")
+    val parcelFileDescriptor = context.contentResolver.openFileDescriptor(uri, "r", null)
+    parcelFileDescriptor?.let {
+        val picked = File(context!!.cacheDir, "tmp")
+        val inputStream = FileInputStream(parcelFileDescriptor.fileDescriptor)
+        val outputStream = FileOutputStream(picked)
+        IOUtils.copy(inputStream, outputStream)
+        file = picked
+    }
+    return file
 }
