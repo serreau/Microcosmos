@@ -1,12 +1,12 @@
 <resources>
-    <!-- Main activity -->
+    <!-- Main View -->
     <string name="app_name">MicroCosmos</string>
     <string name="activity_main__exit">Quitter ?</string>
 
-    <!-- Splashscreen activity-->
+    <!-- Splashscreen View-->
     <string name="activity_splashscreen__title">MICROCOSMOS</string>
 
-    <!-- Login activity-->
+    <!-- Login View-->
     <string name="activity_login__login_wording">Identifiant</string>
     <string name="activity_login__password_wording">Mot de passe</string>
     <string name="activity_login__validate_wording">Connexion</string>
@@ -14,12 +14,12 @@
     <string name="activity_login__connection_refused">Connexion refusée</string>
     <string name="activity_login__login_success">Connecté</string>
 
-    <!-- Create activity -->
+    <!-- Create View -->
     <string name="activity_create_job__create_job_success">Le job a été créé avec success</string>
     <string name="activity_create_job__create_job_error">Impossible de créer le job pour le moment</string>
     <string name="activity_create_job__create_job_login_required">Connexion requise</string>
 
-    <!-- SignUp Activity -->
+    <!-- SignUp View -->
     <string name="activity_sign_up__validate">Valider</string>
     <string name="activity_sign_up__firstname">Prénom</string>
     <string name="activity_sign_up__lastname">Nom</string>
@@ -29,15 +29,15 @@
     <string name="activity_sign_up__sign_up_success">Inscription réussie</string>
     <string name="activity_sign_up__sign_up_error">Inscription impossible pour le moment</string>
 
-    <!-- Profile Activity -->
+    <!-- Profile View -->
     <string name="activity_profile__logout">Déconnexion</string>
     <string name="activity_profile__logout_success">Déconnecté</string>
 
-    <!-- Detail Activity -->
-    <string name="activity_detail__offer_title">Titre</string>
-    <string name="activity_detail__offer_owner">Auteur</string>
-    <string name="activity_detail__offer_date">Date</string>
-    <string name="activity_detail__offer_validate">Faire une offre</string>
+    <!-- Detail View -->
+    <string name="activity_detail__job_title">Titre</string>
+    <string name="activity_detail__job_owner">Auteur</string>
+    <string name="activity_detail__job_date">Date</string>
+    <string name="activity_detail__job_validate">Faire une offre</string>
 
     <!-- BOTTOM NAVIGATION VIEW -->
     <string name="bottom_navigation_new">Nouveau</string>
@@ -45,4 +45,10 @@
     <string name="bottom_navigation_chat">Messages</string>
     <string name="bottom_navigation_board">Tableau</string>
     <string name="bottom_navigation_profile">Profil</string>
+
+    <!-- CreateOffer View-->
+    <string name="activity_create_offer__offer_wording">Quel prix proposez-vous pour ce job ?</string>
+    <string name="activity_create_offer__offer_validate">Envoyer</string>
+    <string name="activity_create_offer__offer_success">L\'offre a été envoyé avec succés</string>
+
 </resources>

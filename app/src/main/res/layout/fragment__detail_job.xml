@@ -11,7 +11,7 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/activity_detail__offer_title"
+        android:text="@string/activity_detail__job_title"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,7 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:minWidth="80dp"
-        android:text="@string/activity_detail__offer_owner"
+        android:text="@string/activity_detail__job_owner"
         app:layout_constraintTop_toBottomOf="@id/title"
         app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -43,20 +43,28 @@
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/activity_detail__offer_date"
+        android:text="@string/activity_detail__job_date"
         app:layout_constraintTop_toBottomOf="@id/owner"
         app:layout_constraintStart_toStartOf="@id/owner"
         android:textSize="12sp"/>
 
     <TextView
-        android:id="@+id/validate"
-        android:layout_width="match_parent"
+        android:id="@+id/createOffer"
+        android:layout_width="0dp"
         android:layout_height="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="100dp"
         android:clickable="true"
-        android:text="@string/activity_detail__offer_validate"
+        android:text="@string/activity_detail__job_validate"
         android:gravity="center"/>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <include android:id="@+id/bottomsheet" layout="@layout/fragment_create_offer"/>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
