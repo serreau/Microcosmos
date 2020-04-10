@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fragment_search.*
 import kotlinx.android.synthetic.main.item__search_recycler_view.view.*
 import sero.com.microcosmos.R
-import sero.com.microcosmos.data.remote.response.JobGetResponse
+import sero.com.microcosmos.data.remote.response.GetJobResponse
 import sero.com.microcosmos.utils.State
 import sero.com.microcosmos.utils.getValue
 import sero.com.microcosmos.utils.z69_200
@@ -40,10 +40,10 @@ class SearchFragment (var state : State = State.TODO) : Fragment() {
     }
 
     inner class SearchAdapter(
-        var list : List<JobGetResponse> = viewmodel.getSearch(state).reversed()
+        var list : List<GetJobResponse> = viewmodel.getSearch(state).reversed()
     ) : RecyclerView.Adapter<SearchAdapter.SearchViewHolder>() {
 
-        fun refresh(list : List<JobGetResponse>) {
+        fun refresh(list : List<GetJobResponse>) {
             this.list = list.reversed()
             notifyDataSetChanged()
         }
@@ -54,18 +54,18 @@ class SearchFragment (var state : State = State.TODO) : Fragment() {
             return SearchViewHolder(card)
         }
 
-        override fun onBindViewHolder(holder: SearchViewHolder, position: Int) = holder.bind(position)
+        override fun onBindViewHolder(holder: SearchViewHolder, position: Int) = holder.bind(list[position])
 
         override fun getItemCount() = list.size
 
         inner class SearchViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-            fun bind(position : Int) {
-                with(list[position]) {
+            fun bind(job : GetJobResponse) {
+                with(job) {
                     context?.let { viewmodel.setImage(it, ownerMail, itemView.image) }
                     itemView.owner.text = ownerFirstname
                     itemView.name.text = name
                     itemView.date.text = z69_200(date)
-                    itemView.setOnClickListener{
+                    itemView.setOnClickListener {
                         val b = Bundle().apply { putString(JOB_ID, _id) }
                         findNavController().navigate(R.id.detailJobFragment, b)
                     }

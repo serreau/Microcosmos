@@ -11,15 +11,21 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.android.synthetic.main.fragment__detail_job.*
 import kotlinx.android.synthetic.main.fragment_create_offer.*
 import sero.com.microcosmos.R
-import sero.com.microcosmos.data.remote.response.JobGetResponse
-import sero.com.microcosmos.utils.*
+import sero.com.microcosmos.data.remote.response.GetJobResponse
+import sero.com.microcosmos.utils.getValue
+import sero.com.microcosmos.utils.toastIt
+import sero.com.microcosmos.utils.z69_200
+import sero.com.microcosmos.view.detailjob.bottomsheet.listoffer.ListOfferBottomSheet
+import sero.com.microcosmos.view.detailjob.bottomsheet.newoffer.NewOfferBottomSheet
 
 class DetailJobFragment : Fragment() {
     companion object{
         const val JOB_ID="JOB_ID"
     }
 
-    private val viewmodel: DetailJobViewModel by viewModels()
+    val viewmodel: DetailJobViewModel by viewModels()
+    private lateinit var jobId : String
+    private lateinit var userId : String
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment__detail_job, container, false)
@@ -27,36 +33,48 @@ class DetailJobFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val id = arguments?.getString(JOB_ID, "Title") ?: return
-        bind(viewmodel.get(id))
-        var bottomSheetBehavior = BottomSheetBehavior.from(bottomsheet)
-        bottomSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
-        bottomSheetBehavior.addBottomSheetCallback(OfferBottomSheetCallBack())
-        createOffer.setOnClickListener {
-            bottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
+        jobId = arguments?.getString(JOB_ID, "Title") ?: return
+        viewmodel.get(jobId)?.let {
+            bind(it)
         }
-        send.setOnClickListener{
-            context?.let { hideSoftKeyboard(it, price) }
-                .let{viewmodel.newOffer(context!!, id, getValue(price).toInt())}
-                .let { findNavController().navigate(R.id.viewPagerFragment) }
-            toastIt(context, getString(R.string.activity_create_offer__offer_success))
-        }
+
+        if(viewmodel.isCurrentUserOwner(context!!, userId))
+            initViewAsOwner()
+        else
+            initViewAsGuest()
     }
 
-    private fun bind(job: JobGetResponse?) {
-        if (job != null) context?.let { viewmodel.setImage(it, job.ownerMail, image) }
-        title.text = job?.name
-        owner.text = job?.ownerFirstname
-        date.text = job?.date?.let { z69_200(it) }
-    }
-
-    inner class OfferBottomSheetCallBack : BottomSheetBehavior.BottomSheetCallback(){
-        override fun onSlide(bottomSheet: View, slideOffset: Float) {}
-        override fun onStateChanged(bottomSheet: View, newState: Int) {
-            when(newState){
-                BottomSheetBehavior.STATE_EXPANDED -> context?.let { showSoftKeyboard(it, price) }
-                BottomSheetBehavior.STATE_HIDDEN -> context?.let { hideSoftKeyboard(it, price) }
+    private fun initViewAsOwner(){
+        showListOffer.apply {
+            visibility = View.VISIBLE
+            val bottomSheet = ListOfferBottomSheet(this@DetailJobFragment, viewmodel.getListOffer(jobId))
+            setOnClickListener {
+                bottomSheet.get().state = BottomSheetBehavior.STATE_EXPANDED
             }
         }
+    }
+
+    private fun initViewAsGuest(){
+        createOffer.apply {
+            visibility = View.VISIBLE
+            val bottomSheet = NewOfferBottomSheet(this@DetailJobFragment )
+            setOnClickListener {
+                bottomSheet.get().state = BottomSheetBehavior.STATE_EXPANDED
+            }
+        }
+    }
+
+    private fun bind(job: GetJobResponse) {
+        context?.let { viewmodel.setImage(it, job.ownerMail, image) }
+        title.text = job.name
+        owner.text = job.ownerFirstname
+        date.text = z69_200(job.date)
+        userId = job.ownerMail
+    }
+
+    fun newOffer() {
+        jobId.let { viewmodel.newOffer(context!!, it, getValue(price).toInt()) }
+        toastIt(context, context!!.getString(R.string.activity_create_offer__offer_success))
+        findNavController().navigate(R.id.viewPagerFragment)
     }
 }

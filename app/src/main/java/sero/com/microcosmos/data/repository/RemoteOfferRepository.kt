@@ -1,8 +1,8 @@
 package sero.com.microcosmos.data.repository
 
 import sero.com.microcosmos.data.remote.OfferRemote
-import sero.com.microcosmos.data.remote.request.body.OfferCreateBody
-import sero.com.microcosmos.data.remote.response.OfferGetResponse
+import sero.com.microcosmos.data.remote.request.body.CreateOfferBody
+import sero.com.microcosmos.data.remote.response.GetOfferResponse
 import sero.com.microcosmos.utils.retrofit
 
 class RemoteOfferRepository {
@@ -11,8 +11,10 @@ class RemoteOfferRepository {
 
     suspend fun get() = remote.get()
 
-    suspend fun get(id : String) : OfferGetResponse = remote.get(id)
+    suspend fun get(id : String) : GetOfferResponse = remote.get(id)
+
+    suspend fun getByJobId(id : String) = remote.getByJobId(id)
 
     suspend fun insert(owner: String, jobId: String, price: Int)
-            = remote.insert(OfferCreateBody(owner, jobId, price)).success
+            = remote.insert(CreateOfferBody(owner, jobId, price)).success
 }

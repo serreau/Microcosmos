@@ -7,12 +7,10 @@
     app:behavior_skipCollapsed="true"
     android:id="@+id/bottomsheetCreateOffer"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:backgroundTint="@color/colorPrimaryDark"
     android:background="@color/colorPrimaryDark"
-    android:orientation="vertical"
-    android:padding="30dp"
-    android:windowSoftInputMode="stateAlwaysHidden">
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/createOfferWording"
@@ -24,7 +22,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:gravity="center"
         android:textColor="@android:color/white"
-        android:textSize="24sp"/>
+        android:textSize="20sp"
+        android:layout_margin="15dp"/>
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/price"
@@ -34,6 +33,7 @@
         app:layout_constraintTop_toBottomOf="@id/createOfferWording"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/send"
         android:gravity="center"
         android:backgroundTint="@android:color/white"
         android:textColor="@android:color/white"
@@ -47,20 +47,22 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:src="@drawable/drawable_euro"
-        app:layout_constraintTop_toBottomOf="@id/createOfferWording"
-        app:layout_constraintStart_toEndOf="@id/price"
-        app:layout_constraintEnd_toStartOf="@id/send"
-        app:layout_constraintBottom_toBottomOf="@id/price"/>
+        app:layout_constraintBottom_toBottomOf="@id/price"
+        app:layout_constraintEnd_toStartOf="@+id/price"
+        app:layout_constraintTop_toTopOf="@id/price" />
 
     <ImageView
         android:id="@+id/send"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="75dp"
+        android:padding="10dp"
+        android:clickable="true"
         android:src="@drawable/drawable_send_white"
-        app:layout_constraintTop_toBottomOf="@id/createOfferWording"
-        app:layout_constraintStart_toEndOf="@id/euro"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/price"
-        android:clickable="true"/>
+        android:backgroundTint="@android:color/holo_green_dark"
+        android:background="@android:color/holo_green_light"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

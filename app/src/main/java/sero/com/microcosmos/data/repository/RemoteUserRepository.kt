@@ -7,8 +7,8 @@ import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import sero.com.microcosmos.R
 import sero.com.microcosmos.data.remote.UserRemote
-import sero.com.microcosmos.data.remote.request.body.UserExistBody
-import sero.com.microcosmos.data.remote.request.body.UserInsertBody
+import sero.com.microcosmos.data.remote.request.body.ExistUserBody
+import sero.com.microcosmos.data.remote.request.body.InsertUserBody
 import sero.com.microcosmos.utils.BASE_URL
 import sero.com.microcosmos.utils.retrofit
 import java.io.File
@@ -18,7 +18,7 @@ class RemoteUserRepository {
     private val remote = retrofit.create(UserRemote::class.java)
 
     suspend fun connect(login : String, password : String) =
-        remote.exist(UserExistBody(login, password)).success
+        remote.exist(ExistUserBody(login, password)).success
 
     suspend fun insert(
         firstname: String,
@@ -32,7 +32,7 @@ class RemoteUserRepository {
         val requestName = RequestBody.create(MultipartBody.FORM, mail)
         val requestBody = MultipartBody.Part.createFormData("image", image.name, requestFile)
 
-        return remote.insert(UserInsertBody(firstname, lastname, phone, mail, password)).success
+        return remote.insert(InsertUserBody(firstname, lastname, phone, mail, password)).success
                 && remote.insert(requestName, requestBody).success
     }
 

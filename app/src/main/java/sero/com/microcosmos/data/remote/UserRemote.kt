@@ -3,17 +3,17 @@ package sero.com.microcosmos.data.remote
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.http.*
-import sero.com.microcosmos.data.remote.request.body.UserExistBody
-import sero.com.microcosmos.data.remote.request.body.UserInsertBody
+import sero.com.microcosmos.data.remote.request.body.ExistUserBody
+import sero.com.microcosmos.data.remote.request.body.InsertUserBody
 import sero.com.microcosmos.data.remote.response.DefaultResponse
 import java.io.File
 
 interface UserRemote {
     @POST("/user/exist")
-    suspend fun exist(@Body body : UserExistBody) : DefaultResponse
+    suspend fun exist(@Body userBody : ExistUserBody) : DefaultResponse
 
     @POST("/user/insert")
-    suspend fun insert(@Body body : UserInsertBody) : DefaultResponse
+    suspend fun insert(@Body userBody : InsertUserBody) : DefaultResponse
 
     @Multipart
     @POST("/user/image")

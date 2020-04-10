@@ -22,7 +22,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.main.MainActivity"
-            android:theme="@style/Microcosmos">
+            android:theme="@style/Microcosmos"
+            android:windowSoftInputMode="stateVisible|adjustResize">
         </activity>
         <meta-data
             android:name="preloaded_fonts"

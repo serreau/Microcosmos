@@ -15,7 +15,7 @@
     <string name="activity_login__login_success">Connecté</string>
 
     <!-- Create View -->
-    <string name="activity_create_job__create_job_success">Le job a été créé avec success</string>
+    <string name="activity_create_job__create_job_success">Le job a été créé avec succès</string>
     <string name="activity_create_job__create_job_error">Impossible de créer le job pour le moment</string>
     <string name="activity_create_job__create_job_login_required">Connexion requise</string>
 
@@ -37,7 +37,8 @@
     <string name="activity_detail__job_title">Titre</string>
     <string name="activity_detail__job_owner">Auteur</string>
     <string name="activity_detail__job_date">Date</string>
-    <string name="activity_detail__job_validate">Faire une offre</string>
+    <string name="activity_detail__job_make_offer">Faire une offre</string>
+    <string name="activity_detail__job_show_list_offer">Voir les offres</string>
 
     <!-- BOTTOM NAVIGATION VIEW -->
     <string name="bottom_navigation_new">Nouveau</string>
@@ -47,7 +48,7 @@
     <string name="bottom_navigation_profile">Profil</string>
 
     <!-- CreateOffer View-->
-    <string name="activity_create_offer__offer_wording">Quel prix proposez-vous pour ce job ?</string>
+    <string name="activity_create_offer__offer_wording">Quel prix proposes-tu pour faire ce job ?</string>
     <string name="activity_create_offer__offer_validate">Envoyer</string>
     <string name="activity_create_offer__offer_success">L\'offre a été envoyé avec succés</string>
 
