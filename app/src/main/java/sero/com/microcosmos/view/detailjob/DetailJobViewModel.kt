@@ -28,7 +28,15 @@ class DetailJobViewModel : ViewModel() {
     ) = remoteUserRepository.setImage(context, owner, image)
 
     fun isCurrentUserOwner(context : Context, userId : String) = runBlocking{
-        userId == localUserRepository.getUserId(context)
+        userId == getCurrentUser(context)
+    }
+
+    fun getCurrentUser(context : Context) = runBlocking{
+        localUserRepository.getUserId(context)
+    }
+
+    fun isConnected(context : Context) = runBlocking{
+        localUserRepository.stillConnected(context)
     }
 
     fun newOffer(context: Context, jobId: String, price: Int) = runBlocking {
@@ -41,5 +49,10 @@ class DetailJobViewModel : ViewModel() {
 
     fun getListOffer(jobId : String) : List<GetOfferResponse> = runBlocking{
         remoteOfferRepository.getByJobId(jobId)
+    }
+
+    fun getOffer(context: Context, jobId: String) = runBlocking{
+        val userId = getCurrentUser(context)
+        remoteOfferRepository.getByUserIdAndJobId(userId, jobId)
     }
 }

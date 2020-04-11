@@ -10,3 +10,4 @@ const val BASE_URL = "http://www.microcosmos.org"
 //DELAY
 const val SPLASH_SCREEN_DELAY  = 2000L
 const val ON_BACK_PRESSED_DELAY  = 2000L
+const val EMPTY_OFFER_LIST_DELAY = 3000L

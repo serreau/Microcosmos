@@ -11,9 +11,22 @@
     android:backgroundTint="@color/colorPrimaryDark"
     android:background="@color/colorPrimaryDark"
     android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/listOfferWording"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/activity_create_offer__list_wording"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:padding="15dp"
+        app:layout_constraintTop_toTopOf="parent"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listOfferRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="vertical"/>
+        android:paddingTop="75dp"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

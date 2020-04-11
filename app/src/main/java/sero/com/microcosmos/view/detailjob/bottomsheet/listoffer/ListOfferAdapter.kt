@@ -18,7 +18,7 @@ class ListOfferAdapter(
     val parent: DetailJobFragment,
     val listOffer: List<GetOfferResponse>
 ) : RecyclerView.Adapter<ListOfferAdapter.ListOfferViewHolder>() {
-    val viewmodel = parent.viewmodel!!
+    val viewmodel = parent.viewmodel
     val context = parent.context!!
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListOfferViewHolder {

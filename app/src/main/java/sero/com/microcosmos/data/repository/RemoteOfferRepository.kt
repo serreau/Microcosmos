@@ -15,6 +15,12 @@ class RemoteOfferRepository {
 
     suspend fun getByJobId(id : String) = remote.getByJobId(id)
 
+    suspend fun getByUserIdAndJobId(userId: String, jobId: String)
+            = remote.getByUserIdAndJobId(userId, jobId)
+
     suspend fun insert(owner: String, jobId: String, price: Int)
             = remote.insert(CreateOfferBody(owner, jobId, price)).success
+
+    suspend fun exist(userId: String, jobId: String) : Boolean
+            = remote.exist(userId, jobId)
 }

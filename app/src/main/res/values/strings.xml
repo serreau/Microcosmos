@@ -38,6 +38,7 @@
     <string name="activity_detail__job_owner">Auteur</string>
     <string name="activity_detail__job_date">Date</string>
     <string name="activity_detail__job_make_offer">Faire une offre</string>
+    <string name="activity_detail__job_show_change_offer">Modifier l\'offre</string>
     <string name="activity_detail__job_show_list_offer">Voir les offres</string>
 
     <!-- BOTTOM NAVIGATION VIEW -->
@@ -49,7 +50,13 @@
 
     <!-- CreateOffer View-->
     <string name="activity_create_offer__offer_wording">Quel prix proposes-tu pour faire ce job ?</string>
-    <string name="activity_create_offer__offer_validate">Envoyer</string>
     <string name="activity_create_offer__offer_success">L\'offre a été envoyé avec succés</string>
+
+    <!-- ChangeOffer View-->
+    <string name="activity_create_offer__change_wording">Le prix que tu proposes pour faire ce job est :</string>
+
+    <!-- ListOffer View-->
+    <string name="activity_create_offer__list_wording">Des propositions ont été faites pour ce job :</string>
+    <string name="activity_create_offer__empty_list_wording">Aucune proposition n\'a encore été faite pour ce job.</string>
 
 </resources>

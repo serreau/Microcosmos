@@ -20,4 +20,12 @@ interface OfferRemote {
 
     @POST("/offer/insert")
     suspend fun insert(@Body job : CreateOfferBody) : DefaultResponse
+
+    @GET("/offer/exist/user/{userid}/job/{jobid}")
+    suspend fun exist(@Path("userid") userId : String,
+                      @Path("jobid") jobId : String) : Boolean
+
+    @GET("/offer/getby/owner/{userid}/job/{jobid}")
+    suspend fun getByUserIdAndJobId(@Path("userid") userId: String,
+                            @Path("jobid") jobId: String): List<GetOfferResponse>
 }
